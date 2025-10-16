@@ -1,93 +1,51 @@
-CognitiveTrust Security Scanner for VS Code
+# 🧠 CognitiveTrust Security Scanner for VS Code
 
-This VS Code extension helps developers write more secure code by identifying and fixing common security anti-patterns in real-time. It uses Semgrep for powerful static analysis and integrates with Google's Gemini API for intelligent, AI-powered refactoring.
+The **CognitiveTrust Security Scanner** is a Visual Studio Code extension that helps developers write more secure Python code by detecting and fixing common security anti-patterns in real time.  
+It leverages **Semgrep** for static code analysis and integrates with **Google’s Gemini API** for intelligent, AI-powered code refactoring.
 
-Features
+---
 
-Required Features
+## 🚀 Features
 
-Real-time Security Scanning: Automatically scans Python and requirements.txt files on open and on save.
+### ✅ Required Features
 
-Vulnerability Detection:
+#### 🔍 Real-Time Security Scanning
+Automatically scans **Python (`.py`)** and **`requirements.txt`** files on open and save.
 
-Hardcoded Secrets: Finds API keys, tokens, and other credentials exposed in the source code.
+#### 🧩 Vulnerability Detection
+- **Hardcoded Secrets:** Detects exposed API keys, tokens, and credentials in the source code.  
+- **Missing Authorization:** Identifies Python Flask routes that may lack proper authorization checks.  
+- **Outdated Libraries:** Flags vulnerable dependencies listed in `requirements.txt`.
 
-Missing Authorization: Detects Python Flask routes that may be missing authorization checks.
+#### ⚡ One-Click Fixes
+Provides a **Quick Fix** to automatically replace hardcoded secrets with secure `os.getenv()` lookups.
 
-Outdated Libraries: Scans requirements.txt for packages with known vulnerabilities.
+#### 🔄 Rescan After Fix
+Automatically rescans the file on save to confirm that vulnerabilities have been resolved.
 
-One-Click Fixes: Provides a standard, one-click Quick Fix to replace hardcoded secrets with secure environment variable lookups.
+---
 
-Rescan After Fix: Automatically rescans a file upon saving to confirm that a vulnerability has been successfully resolved.
+### 💎 Optional (Bonus) Features
 
-Optional (Bonus) Features
+#### 🤖 AI-Powered Refactoring (Gemini Integration)
+Offers a **“Refactor with Gemini ✨”** Quick Fix option that uses Google’s Gemini API to intelligently rewrite insecure code, suggesting context-aware security improvements.
 
-AI-Powered Refactoring: Offers a "Refactor with Gemini ✨" Quick Fix for all detected issues, providing context-aware solutions for secrets, missing authorization, and outdated dependencies.
+#### 📊 Scan History & Metrics
+Maintains a log of every scan, tracking the number of findings and fixes applied.  
+Use the “Show Scan History” command to review past metrics.
 
-Scan History & Metrics: Logs every scan and tracks the total number of fixes applied. This data can be viewed at any time.
+#### 🌐 Full Workspace Scanning
+Provides a **“Scan Entire Workspace”** command to analyze all supported files across your project and display consolidated results in the **Problems panel**.
 
-Full Workspace Scanning: Includes a command to scan every supported file in the entire workspace at once, populating the "Problems" panel with a complete security overview.
+---
 
-Setup & Installation
+## ⚙️ Setup & Installation
 
-Prerequisites
+### 🧾 Prerequisites
 
-VS Code: Version 1.85 or newer.
-
-Node.js: Version 18.x or newer.
-
-Python: Version 3.8 or newer.
-
-Semgrep: The core scanning engine. Install it via pip:
-
-pip install semgrep
-
-
-Installation
-
-Clone the Repository:
-
-git clone <your-repository-url>
-cd <your-repository-directory>
-
-
-Install Dependencies:
-
-npm install
-
-
-How to Use
-
-Running the Extension
-
-Open the project folder in VS Code.
-
-Press F5 to open a new Extension Development Host window with the extension running.
-
-Using the Features
-
-Automatic Scanning: Simply open a .py file or a requirements.txt file. Any vulnerabilities will be highlighted with a squiggly line. Hover over the line to see the issue description.
-
-Applying a Quick Fix:
-
-Click on a line with a warning.
-
-Click the lightbulb icon that appears, or press Ctrl + . (period).
-
-Choose either the standard fix (if available) or "Refactor with Gemini ✨".
-
-Using the Gemini AI Fix (First Time):
-
-The first time you select the Gemini fix, an input box will appear at the top of the screen.
-
-Paste your Google AI Gemini API Key and press Enter. The key will be stored securely for future use.
-
-Available Commands
-
-Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P) and type "CognitiveTrust" to access these commands:
-
-CognitiveTrust: Scan Entire Workspace: Scans all .py and requirements.txt files in your project.
-
-CognitiveTrust: Show Scan History: Opens an output panel with a log of recent scans and the total number of fixes applied.
-
-CognitiveTrust: Clear API Key: Removes your stored Gemini API key, allowing you to enter a new one.
+- **VS Code:** version `1.85` or newer  
+- **Node.js:** version `18.x` or newer  
+- **Python:** version `3.8` or newer  
+- **Semgrep:** install via pip  
+  ```bash
+  pip install semgrep
